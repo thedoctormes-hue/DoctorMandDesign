@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "lang": "ru",
+    "name": "Русский",
+    "native_name": "Русский"
+  },
+  "page_number": "{current} / {total}",
+  "section_labels": {
+    "problem": "ПРОБЛЕМА",
+    "solution": "РЕШЕНИЕ",
+    "how_it_works": "КАК РАБОТАЕТ",
+    "benefits": "ЧТО ПОЛУЧАЕТ КЛИНИКА",
+    "economics": "ЭКОНОМИКА",
+    "competition": "СРАВНЕНИЕ С КОНКУРЕНТОМ",
+    "market": "ПРОГНОЗ ПО РЫНКУ",
+    "roadmap": "ДОРОЖНАЯ КАРТА",
+    "government": "СООТВЕТСТВИЕ ГОСУДАРСТВЕННОЙ СТРАТЕГИИ",
+    "team": "КОМАНДА",
+    "cta": "ГОТОВЫ ОБСУДИТЬ",
+    "quote": "МНЕНИЕ ЭКСПЕРТА",
+    "timeline": "ТАЙМЛАЙН ПРОЕКТА",
+    "stats": "ЦИФРЫ",
+    "faq": "ВОПРОСЫ И ОТВЕТЫ",
+    "contact": "КОНТАКТЫ",
+    "toc": "СОДЕРЖАНИЕ"
+  },
+  "common": {
+    "currency": "руб",
+    "currency_month": "руб/мес",
+    "from": "от",
+    "to": "до",
+    "months": "месяцев",
+    "quarters": "кварталов"
+  }
+}

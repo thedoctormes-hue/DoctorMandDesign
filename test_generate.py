@@ -43,13 +43,19 @@ def test_verify_report():
 
     report = json.loads(result.stdout)
     total = len(report["slides"])
-    with_text = sum(1 for s in report["slides"] if s["has_text"])
-    ok_contrast = sum(1 for s in report["slides"] if s["contrast_ok"])
-
-    assert with_text == total, f"Текст найден только на {with_text}/{total} слайдах"
-    assert ok_contrast == total, f"Контраст ок только на {ok_contrast}/{total} слайдах"
-
-    print(f"✅ Verify: {total} слайдов, все с текстом и контрастом")
+    passed = 0
+    for s in report["slides"]:
+        has_text = s["has_text"]
+        wcag_level = s["wcag_level"]
+        basic_contrast = s["basic_contrast"]
+        wcag_ok = wcag_level in ("AA", "AA-large")
+        if wcag_level == "UNKNOWN":
+            wcag_ok = basic_contrast >= 0.3
+        if wcag_ok and has_text:
+            passed += 1
+    
+    assert passed == total, f"Only {passed}/{total} slides passed (text + adequate contrast)"
+    print(f"✅ Verify: {total} slides, all passed text and contrast check")
     
 
 def test_design_system_css():

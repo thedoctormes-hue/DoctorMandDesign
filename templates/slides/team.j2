@@ -2,23 +2,23 @@
   {% set slide = current_slide %}
   {% set loop = current_loop %}
   <div class="mb-sm">
-    <span class="section-label text-cyan">{{ slide.heading }}</span>
+    <span class="section-label text-cyan">{{ current_slide.heading }}</span>
   </div>
   <div class="mb-lg">
-    <span style="font-size:22px; font-weight:700; color:var(--yellow);">{{ slide.title }}</span>
+    <span style="font-size:22px; font-weight:700; color:var(--yellow);">{{ current_slide.title }}</span>
   </div>
   <div class="flex gap-md" style="justify-content:center;">
-    {% for member in slide.members %}
+    {% for member in current_slide.members %}
     <div class="card-glow" style="width:200px; text-align:center; padding:20px;">
       <div style="font-size:14px; font-weight:700; color:var(--accent-cyan);">{{ member.name }}</div>
       <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">{{ member.role }}</div>
     </div>
     {% endfor %}
   </div>
-  {% if slide.advisors %}
+  {% if current_slide.advisors %}
   <div class="mt-lg">
     <div class="flex gap-md" style="justify-content:center;">
-      {% for adv in slide.advisors %}
+      {% for adv in current_slide.advisors %}
       <div class="card" style="width:200px; text-align:center; padding:16px;">
         <div style="font-size:13px; font-weight:700; color:var(--text-primary);">{{ adv.name }}</div>
         <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">{{ adv.role }}</div>

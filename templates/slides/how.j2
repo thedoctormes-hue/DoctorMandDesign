@@ -2,10 +2,10 @@
   {% set slide = current_slide %}
   {% set loop = current_loop %}
   <div class="mb-sm">
-    <span class="section-label text-cyan">{{ slide.heading }}</span>
+    <span class="section-label text-cyan">{{ current_slide.heading }}</span>
   </div>
   <div class="flex gap-sm mb-lg" style="align-items:center; justify-content:center;">
-    {% for step in slide.steps %}
+    {% for step in current_slide.steps %}
     <div class="step-card">
       <div class="title">{{ step.title }}</div>
       <div class="desc">{{ step.desc }}</div>
@@ -15,7 +15,7 @@
   </div>
   <div class="divider"></div>
   <div style="text-align:center;">
-    <span style="font-size:12px; color:var(--text-muted);">{{ slide.note }}</span>
+    <span style="font-size:12px; color:var(--text-muted);">{{ current_slide.note }}</span>
   </div>
   <div class="page-number">{{ loop.index }} / {{ current_slides|length }}</div>
 </section>

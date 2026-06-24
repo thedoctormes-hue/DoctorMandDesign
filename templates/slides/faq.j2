@@ -2,10 +2,10 @@
   {% set slide = current_slide %}
   {% set loop = current_loop %}
   <div class="mb-sm">
-    <span class="section-label text-cyan">{{ slide.heading }}</span>
+    <span class="section-label text-cyan">{{ current_slide.heading }}</span>
   </div>
   <div class="mb-lg">
-    <span style="font-size:22px; font-weight:700; color:var(--text-primary);">{{ slide.title }}</span>
+    <span style="font-size:22px; font-weight:700; color:var(--text-primary);">{{ current_slide.title }}</span>
   </div>
   <div class="grid grid-1 gap-md" style="flex:1;">
     {% for item in slide["items"] %}

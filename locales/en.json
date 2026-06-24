@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "lang": "en",
+    "name": "English",
+    "native_name": "English"
+  },
+  "page_number": "{current} / {total}",
+  "section_labels": {
+    "problem": "PROBLEM",
+    "solution": "SOLUTION",
+    "how": "HOW IT WORKS",
+    "benefits": "WHAT THE CLINIC GETS",
+    "economics": "ECONOMICS",
+    "competition": "COMPETITION WITH COMPETITOR",
+    "market": "MARKET FORECAST",
+    "roadmap": "ROADMAP",
+    "government": "GOVERNMENT STRATEGY COMPLIANCE",
+    "team": "TEAM",
+    "cta": "READY TO DISCUSS",
+    "quote": "EXPERT OPINION",
+    "timeline": "PROJECT TIMELINE",
+    "stats": "KEY METRICS",
+    "faq": "FREQUENTLY ASKED QUESTIONS",
+    "contact": "CONTACTS",
+    "toc": "TABLE OF CONTENTS"
+  },
+  "common": {
+    "currency": "$",
+    "currency_month": "$/mo",
+    "from": "from",
+    "to": "to",
+    "months": "months",
+    "quarters": "quarters"
+  }
+}

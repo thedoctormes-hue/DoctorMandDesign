@@ -2,18 +2,18 @@
   {% set slide = current_slide %}
   {% set loop = current_loop %}
   <div class="mb-sm">
-    <span class="section-label text-cyan">{{ slide.heading }}</span>
+    <span class="section-label text-cyan">{{ current_slide.heading }}</span>
   </div>
   <table class="table">
     <thead>
       <tr>
-        <th style="width:20%;">{{ slide.criterion_label | default('Критерий') }}</th>
-        <th style="width:40%;">{{ slide.competitor_name }}</th>
-        <th style="width:40%;">{{ slide.our_name }}</th>
+        <th style="width:20%;">{{ current_slide.criterion_label | default('Критерий') }}</th>
+        <th style="width:40%;">{{ current_slide.competitor_name }}</th>
+        <th style="width:40%;">{{ current_slide.our_name }}</th>
       </tr>
     </thead>
     <tbody>
-      {% for row in slide.rows %}
+      {% for row in current_slide.rows %}
       <tr>
         <td>{{ row.criterion }}</td>
         <td>{{ row.competitor }}</td>
@@ -22,9 +22,9 @@
       {% endfor %}
     </tbody>
   </table>
-  {% if slide.source %}
+  {% if current_slide.source %}
   <div class="mt-md">
-    <span class="text-xs" style="color:var(--text-muted);">* {{ slide.source }}</span>
+    <span class="text-xs" style="color:var(--text-muted);">* {{ current_slide.source }}</span>
   </div>
   {% endif %}
   <div class="page-number">{{ loop.index }} / {{ current_slides|length }}</div>

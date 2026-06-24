@@ -2,10 +2,10 @@
   {% set slide = current_slide %}
   {% set loop = current_loop %}
   <div class="mb-sm">
-    <span class="section-label text-cyan">{{ slide.heading }}</span>
+    <span class="section-label text-cyan">{{ current_slide.heading }}</span>
   </div>
   <div class="mb-lg">
-    <span style="font-size:22px; font-weight:700; color:var(--yellow);">{{ slide.title }}</span>
+    <span style="font-size:22px; font-weight:700; color:var(--yellow);">{{ current_slide.title }}</span>
   </div>
   <table class="table">
     <thead>
@@ -16,7 +16,7 @@
       <th>Итого</th>
     </thead>
     <tbody>
-      {% for row in slide.rows %}
+      {% for row in current_slide.rows %}
       <tr>
         {% for cell in row %}
         {% if loop.last %}
@@ -29,9 +29,9 @@
       {% endfor %}
     </tbody>
   </table>
-  {% if slide.note %}
+  {% if current_slide.note %}
   <div class="card-glow mt-md">
-    <div style="font-size:14px; font-weight:700; color:var(--green);">{{ slide.note }}</div>
+    <div style="font-size:14px; font-weight:700; color:var(--green);">{{ current_slide.note }}</div>
   </div>
   {% endif %}
   <div class="page-number">{{ loop.index }} / {{ current_slides|length }}</div>

@@ -1,27 +1,27 @@
 <section class="slide">
-  {% set slide = current_slide %}
-  {% set loop = current_loop %}
+  {% if current_slide.heading %}
   <div class="mb-md">
-    <span class="section-label text-red">{{ slide.heading }}</span>
+    <span class="section-label text-red">{{ locale.section_labels[current_slide.heading] | default(current_slide.heading | upper) }}</span>
   </div>
+  {% endif %}
   <div class="mb-sm">
-    <span style="font-size:28px; font-weight:700; color:var(--red);">{{ slide.title }}</span>
+    <span style="font-size:28px; font-weight:700; color:var(--red);">{{ current_slide.title }}</span>
   </div>
   <div class="mb-lg">
-    <span style="font-size:12px; color:var(--text-muted); max-width:80%;">{{ slide.note }}</span>
+    <span style="font-size:12px; color:var(--text-muted); max-width:80%;">{{ current_slide.note }}</span>
   </div>
   <div class="flex gap-md mb-lg">
-    {% for stat in slide.stat %}
+    {% for stat in current_slide.stat %}
     <div class="stat-card" style="flex:1; border:1px solid var(--border-alert);">
       <div class="number text-{{ stat.color | default('red') }}">{{ stat.value }}</div>
       <div class="label">{{ stat.label }}</div>
     </div>
     {% endfor %}
   </div>
-  {% if slide.alert %}
+  {% if current_slide.alert %}
   <div class="card-alert">
-    <div style="font-size:14px; font-weight:700; color:var(--yellow);">{{ slide.alert }}</div>
+    <div style="font-size:14px; font-weight:700; color:var(--yellow);">{{ current_slide.alert }}</div>
   </div>
   {% endif %}
-  <div class="page-number">{{ loop.index }} / {{ current_slides|length }}</div>
+  <div class="page-number">{{ locale.page_number.replace('{current}', loop.index|string).replace('{total}', current_slides|length|string) }}</div>
 </section>

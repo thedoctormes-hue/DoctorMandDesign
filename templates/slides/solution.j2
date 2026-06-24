@@ -2,22 +2,22 @@
   {% set slide = current_slide %}
   {% set loop = current_loop %}
   <div class="mb-sm">
-    <span class="section-label text-green">{{ slide.heading }}</span>
+    <span class="section-label text-green">{{ current_slide.heading }}</span>
   </div>
   <div class="mb-lg">
-    <span style="font-size:22px; font-weight:600; color:var(--yellow);">{{ slide.title }}</span>
+    <span style="font-size:22px; font-weight:600; color:var(--yellow);">{{ current_slide.title }}</span>
   </div>
   <div class="grid grid-3 gap-md mb-lg">
-    {% for f in slide.features %}
+    {% for f in current_slide.features %}
     <div class="feature-card" style="border-color:var(--border-glow);">
       <div class="title text-cyan">{{ f.title }}</div>
       <div class="desc">{{ f.desc }}</div>
     </div>
     {% endfor %}
   </div>
-  {% if slide.metric %}
+  {% if current_slide.metric %}
   <div class="card-glow" style="border-color:rgba(57,255,20,0.3);">
-    <div style="font-size:15px; font-weight:700; color:var(--green);">{{ slide.metric }}</div>
+    <div style="font-size:15px; font-weight:700; color:var(--green);">{{ current_slide.metric }}</div>
   </div>
   {% endif %}
   <div class="page-number">{{ loop.index }} / {{ current_slides|length }}</div>

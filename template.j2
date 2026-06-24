@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ lang | default('ru') }}">
+<html lang="{{ _lang | default('ru') }}">
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="design-system.css">
@@ -18,6 +18,8 @@
   {% set current_slide = slide %}
   {% set current_loop = loop %}
   {% set current_slides = slides %}
+  {% set locale = _locale %}
+  {% set lang = _lang %}
   {% include 'slides/' ~ slide.type ~ '.j2' %}
 {% endfor %}
 
