@@ -1,0 +1,23 @@
+{% set slide = current_slide %}
+{% set loop = current_loop %}
+<section class="slide" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:14mm 20mm 12mm 20mm;">
+  {% if slide.heading %}
+  <div style="margin-bottom:12px;">
+    <span style="font-size:11px; font-weight:600; color:var(--accent-cyan); text-transform:uppercase; letter-spacing:0.08em;">{{ locale.section_labels[slide.heading] | default(slide.heading | upper) }}</span>
+  </div>
+  {% endif %}
+  <div class="flex gap-md" style="justify-content:center; align-items:baseline; flex:1; flex-wrap:wrap;">
+    {% for stat in slide.stats %}
+    <div style="min-width:160px; padding:16px;">
+      <div style="font-size:48px; font-weight:900; color:var(--{{ stat.color | default('accent-cyan') }}); line-height:1;">{{ stat.value }}</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-top:6px; text-transform:uppercase; letter-spacing:0.05em;">{{ stat.label }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% if slide.note %}
+  <div style="margin-top:12px; max-width:70%;">
+    <span style="font-size:13px; color:var(--text-secondary); line-height:1.5;">{{ slide.note }}</span>
+  </div>
+  {% endif %}
+  <div class="page-number">{{ locale.page_number.replace('{current}', loop.index|string).replace('{total}', current_slides|length|string) }}</div>
+</section>

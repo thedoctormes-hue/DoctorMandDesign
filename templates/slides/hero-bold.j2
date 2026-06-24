@@ -1,0 +1,26 @@
+{% set slide = current_slide %}
+{% set loop = current_loop %}
+<section class="slide" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-elevated) 50%, var(--accent-cyan-dim) 100%);">
+  {% if slide.overline %}
+  <div style="margin-bottom:12px;">
+    <span style="font-size:11px; font-weight:600; color:var(--accent-cyan); text-transform:uppercase; letter-spacing:0.12em;">{{ slide.overline }}</span>
+  </div>
+  {% endif %}
+  <div style="margin-bottom:10px; max-width:85%;">
+    <span style="font-size:58px; font-weight:900; color:var(--text-primary); letter-spacing:-0.04em; line-height:1.05;">{{ slide.title }}</span>
+  </div>
+  <div style="margin-bottom:16px; max-width:60%;">
+    <span style="font-size:18px; color:var(--text-secondary); line-height:1.4;">{{ slide.subtitle }}</span>
+  </div>
+  {% if slide.cards %}
+  <div class="flex gap-md" style="justify-content:center; width:100%; margin-top:8px;">
+    {% for card in slide.cards %}
+    <div style="background:rgba(8,16,31,0.8); border:1px solid var(--border-glow); border-radius:8px; padding:14px 18px; width:240px; backdrop-filter:blur(4px);">
+      <div style="font-size:13px; font-weight:700; color:var(--accent-cyan); margin-bottom:4px;">{{ card.title }}</div>
+      <div style="font-size:11px; color:var(--text-secondary); line-height:1.4;">{{ card.body }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <div class="page-number" style="color:rgba(230,241,255,0.3);">{{ locale.page_number.replace('{current}', loop.index|string).replace('{total}', current_slides|length|string) }}</div>
+</section>

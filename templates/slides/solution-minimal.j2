@@ -1,0 +1,31 @@
+{% set slide = current_slide %}
+{% set loop = current_loop %}
+<section class="slide" style="padding:14mm 24mm 12mm 24mm;">
+  {% if slide.heading %}
+  <div style="margin-bottom:8px;">
+    <span style="font-size:11px; font-weight:600; color:var(--green); text-transform:uppercase; letter-spacing:0.08em;">{{ locale.section_labels[slide.heading] | default(slide.heading | upper) }}</span>
+  </div>
+  {% endif %}
+  <div style="margin-bottom:16px;">
+    <span style="font-size:28px; font-weight:700; color:var(--green); line-height:1.2;">{{ slide.title }}</span>
+  </div>
+  <div style="flex:1;">
+    <div class="grid grid-2 gap-md">
+      {% for f in slide.features %}
+      <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:10px;">
+        <div style="min-width:8px; height:8px; border-radius:50%; background:var(--green); margin-top:5px;"></div>
+        <div>
+          <div style="font-size:13px; font-weight:600; color:var(--text-primary); margin-bottom:3px;">{{ f.title }}</div>
+          <div style="font-size:11px; color:var(--text-secondary); line-height:1.4;">{{ f.desc }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% if slide.metric %}
+  <div style="margin-top:12px; padding:10px 16px; background:var(--bg-win); border-radius:6px; text-align:center;">
+    <div style="font-size:15px; font-weight:700; color:var(--green);">{{ slide.metric }}</div>
+  </div>
+  {% endif %}
+  <div class="page-number">{{ locale.page_number.replace('{current}', loop.index|string).replace('{total}', current_slides|length|string) }}</div>
+</section>

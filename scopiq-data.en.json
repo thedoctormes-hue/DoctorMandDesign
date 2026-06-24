@@ -5,9 +5,11 @@
   "slides": [
     {
       "type": "hero",
+      "variant": "bold",
+      "overline": "Hackathon \"Medicine of the Future 2.0\"",
       "title": "SCOPIQ",
       "subtitle": "AI-assisted polyp detection during colonoscopy in real time",
-      "footer": "Team VitaMind · Hackathon \"Medicine of the Future 2.0\"",
+      "footer": "Team VitaMind",
       "cards": [
         {"title": "Import substitution", "body": "Works with any endoscope. Local inference. No internet."},
         {"title": "Technology", "body": "YOLOv8m · mAP50: 0.938 · Latency <100 ms · Kvasir-SEG."}
@@ -20,6 +22,7 @@
     },
     {
       "type": "team",
+      "variant": "grid",
       "heading": "TEAM",
       "title": "Team VitaMind",
       "members": [
@@ -52,6 +55,7 @@
     },
     {
       "type": "benefits",
+      "variant": "minimal",
       "heading": "BENEFITS",
       "title": "Why Scopiq",
       "benefits": [
@@ -67,6 +71,7 @@
     },
     {
       "type": "problem",
+      "variant": "split",
       "heading": "LIMITATIONS",
       "title": "What you need to know",
       "stat": [
@@ -83,6 +88,7 @@
     },
     {
       "type": "roadmap",
+      "variant": "timeline",
       "heading": "ROADMAP",
       "title": "From colonoscopy to full endoscopy",
       "phases": [
@@ -122,6 +128,7 @@
     },
     {
       "type": "competition",
+      "variant": "cards",
       "heading": "COMPETITION",
       "title": "Scopiq vs ArtInCol vs Foreign solutions",
       "criterion_label": "Criterion",
@@ -143,6 +150,7 @@
     },
     {
       "type": "cta",
+      "variant": "bold",
       "heading": "DEMO",
       "title": "Scopiq — a second opinion that saves lives",
       "items": [

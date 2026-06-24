@@ -1,0 +1,40 @@
+{% set slide = current_slide %}
+{% set loop = current_loop %}
+<section class="slide" style="display:flex; flex-direction:row; padding:0;">
+  <!-- Left: text -->
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; padding:14mm 10mm 12mm 20mm;">
+    <div style="margin-bottom:6px;">
+      <span style="font-size:11px; font-weight:600; color:var(--accent-cyan); text-transform:uppercase; letter-spacing:0.08em;">{{ slide.tagline | default('') }}</span>
+    </div>
+    <div style="margin-bottom:10px;">
+      <span style="font-size:42px; font-weight:900; color:var(--text-primary); letter-spacing:-0.03em; line-height:1.1;">{{ slide.title }}</span>
+    </div>
+    <div style="margin-bottom:8px;">
+      <span style="font-size:16px; color:var(--text-secondary); line-height:1.4;">{{ slide.subtitle }}</span>
+    </div>
+    <div>
+      <span style="font-size:11px; color:var(--text-muted);">{{ slide.footer | default('') }}</span>
+    </div>
+  </div>
+  <!-- Right: visual / cards -->
+  <div style="width:45%; display:flex; flex-direction:column; justify-content:center; padding:14mm 20mm 12mm 10mm; gap:10px;">
+    {% if slide.cards %}
+      {% for card in slide.cards %}
+      <div class="card-glow" style="padding:14px 16px;">
+        <div style="font-size:13px; font-weight:700; color:var(--accent-cyan); margin-bottom:4px;">{{ card.title }}</div>
+        <div style="font-size:11px; color:var(--text-secondary); line-height:1.4;">{{ card.body }}</div>
+      </div>
+      {% endfor %}
+    {% elif slide.visual %}
+      <div style="background:var(--bg-elevated); border:1px solid var(--border-glow); border-radius:8px; padding:20px; text-align:center;">
+        <div style="font-size:48px; margin-bottom:8px;">{{ slide.visual | default('🚀') }}</div>
+      </div>
+    {% else %}
+      <div style="background:linear-gradient(135deg, var(--accent-cyan-dim), transparent); border:1px solid var(--border-glow); border-radius:8px; padding:24px; text-align:center;">
+        <div style="font-size:36px; font-weight:800; color:var(--accent-cyan);">{{ slide.metric | default('') }}</div>
+        <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">{{ slide.metric_label | default('') }}</div>
+      </div>
+    {% endif %}
+  </div>
+  <div class="page-number">{{ locale.page_number.replace('{current}', loop.index|string).replace('{total}', current_slides|length|string) }}</div>
+</section>

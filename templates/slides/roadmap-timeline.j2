@@ -1,0 +1,41 @@
+{% set slide = current_slide %}
+{% set loop = current_loop %}
+<section class="slide" style="padding:14mm 20mm 12mm 20mm;">
+  {% if slide.heading %}
+  <div style="margin-bottom:8px;">
+    <span style="font-size:11px; font-weight:600; color:var(--accent-cyan); text-transform:uppercase; letter-spacing:0.08em;">{{ locale.section_labels[slide.heading] | default(slide.heading | upper) }}</span>
+  </div>
+  {% endif %}
+  <div style="margin-bottom:16px;">
+    <span style="font-size:24px; font-weight:700; color:var(--yellow);">{{ slide.title }}</span>
+  </div>
+  <!-- Horizontal timeline -->
+  <div style="display:flex; align-items:flex-start; gap:0; margin-bottom:16px; position:relative;">
+    <div style="position:absolute; top:20px; left:0; right:0; height:2px; background:var(--border-glow);"></div>
+    {% for phase in slide.phases %}
+    <div style="flex:1; text-align:center; position:relative; padding:0 8px;">
+      <div style="width:12px; height:12px; border-radius:50%; background:var(--{{ phase.color | default('cyan') }}; margin:14px auto 8px; position:relative; z-index:1; box-shadow:0 0 8px var(--{{ phase.color | default('cyan') }});"></div>
+      <div style="font-size:11px; font-weight:700; color:var(--{{ phase.color | default('cyan') }}); margin-bottom:4px;">{{ phase.label }}</div>
+      <div style="font-size:12px; font-weight:600; color:var(--text-primary); margin-bottom:4px;">{{ phase.name }}</div>
+      {% if phase.desc %}
+      <div style="font-size:10px; color:var(--text-muted); line-height:1.3;">{{ phase.desc }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <!-- Segments if any -->
+  {% if slide.segments %}
+  <div style="margin-top:8px;">
+    <div style="font-size:11px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px;">{{ slide.segments_title | default('ALSO') }}</div>
+    <div class="flex gap-md" style="justify-content:center;">
+      {% for seg in slide.segments %}
+      <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:6px; padding:10px 14px; flex:1; max-width:220px;">
+        <div style="font-size:12px; font-weight:600; color:var(--{{ seg.color | default('cyan') }}); margin-bottom:3px;">{{ seg.title }}</div>
+        <div style="font-size:10px; color:var(--text-muted); line-height:1.3;">{{ seg.desc }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  <div class="page-number">{{ locale.page_number.replace('{current}', loop.index|string).replace('{total}', current_slides|length|string) }}</div>
+</section>

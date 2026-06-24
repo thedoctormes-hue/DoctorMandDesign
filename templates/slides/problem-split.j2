@@ -1,0 +1,35 @@
+{% set slide = current_slide %}
+{% set loop = current_loop %}
+<section class="slide" style="display:flex; flex-direction:row; padding:0;">
+  <!-- Left: text -->
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; padding:14mm 10mm 12mm 20mm;">
+    {% if slide.heading %}
+    <div style="margin-bottom:8px;">
+      <span style="font-size:11px; font-weight:600; color:var(--red); text-transform:uppercase; letter-spacing:0.08em;">{{ locale.section_labels[slide.heading] | default(slide.heading | upper) }}</span>
+    </div>
+    {% endif %}
+    <div style="margin-bottom:10px;">
+      <span style="font-size:32px; font-weight:800; color:var(--red); line-height:1.15;">{{ slide.title }}</span>
+    </div>
+    <div style="margin-bottom:12px;">
+      <span style="font-size:13px; color:var(--text-secondary); line-height:1.5; max-width:90%;">{{ slide.note }}</span>
+    </div>
+    {% if slide.alert %}
+    <div style="background:var(--bg-alert); border:1px solid var(--border-alert); border-radius:6px; padding:10px 14px; max-width:90%;">
+      <div style="font-size:12px; font-weight:600; color:var(--yellow);">{{ slide.alert }}</div>
+    </div>
+    {% endif %}
+  </div>
+  <!-- Right: stats -->
+  <div style="width:45%; display:flex; flex-direction:column; justify-content:center; padding:14mm 20mm 12mm 10mm; gap:12px;">
+    {% if slide.stat %}
+      {% for stat in slide.stat %}
+      <div style="background:var(--bg-card); border-left:3px solid var(--{{ stat.color | default('red') }}); border-radius:0 6px 6px 0; padding:12px 16px;">
+        <div style="font-size:28px; font-weight:800; color:var(--{{ stat.color | default('red') }});">{{ stat.value }}</div>
+        <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">{{ stat.label }}</div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div class="page-number">{{ locale.page_number.replace('{current}', loop.index|string).replace('{total}', current_slides|length|string) }}</div>
+</section>

@@ -1,0 +1,24 @@
+{% set slide = current_slide %}
+{% set loop = current_loop %}
+<section class="slide" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:14mm 24mm 12mm 24mm; background:linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-elevated) 100%);">
+  <div style="width:40px; height:3px; background:var(--accent-cyan); margin-bottom:16px;"></div>
+  <div style="margin-bottom:20px; max-width:80%;">
+    <span style="font-size:36px; font-weight:800; color:var(--text-primary); letter-spacing:-0.02em; line-height:1.15;">{{ slide.title }}</span>
+  </div>
+  {% if slide["items"] %}
+  <div class="flex gap-md" style="justify-content:center; flex-wrap:wrap; margin-bottom:20px;">
+    {% for item in slide["items"] %}
+    <div class="card-glow" style="width:200px; padding:16px; text-align:center;">
+      <div style="font-size:14px; font-weight:700; color:var(--accent-cyan); margin-bottom:6px;">{{ item.title }}</div>
+      <div style="font-size:11px; color:var(--text-secondary); line-height:1.4;">{{ item.desc }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% if slide.contact %}
+  <div style="padding:12px 24px; background:var(--accent-cyan-dim); border:1px solid var(--border-glow); border-radius:8px;">
+    <div style="font-size:14px; font-weight:600; color:var(--accent-cyan);">{{ slide.contact }}</div>
+  </div>
+  {% endif %}
+  <div class="page-number" style="color:rgba(230,241,255,0.3);">{{ locale.page_number.replace('{current}', loop.index|string).replace('{total}', current_slides|length|string) }}</div>
+</section>

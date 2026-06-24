@@ -1,0 +1,15 @@
+{% set slide = current_slide %}
+{% set loop = current_loop %}
+<section class="slide" style="display:flex; flex-direction:column; justify-content:center; padding:14mm 24mm 12mm 24mm;">
+  <div style="width:40px; height:3px; background:var(--accent-cyan); margin-bottom:16px;"></div>
+  <div style="margin-bottom:12px;">
+    <span style="font-size:48px; font-weight:800; color:var(--text-primary); letter-spacing:-0.03em; line-height:1.1;">{{ slide.title }}</span>
+  </div>
+  <div style="margin-bottom:8px; max-width:70%;">
+    <span style="font-size:16px; color:var(--text-secondary); line-height:1.5;">{{ slide.subtitle }}</span>
+  </div>
+  <div style="margin-top:auto;">
+    <span style="font-size:11px; color:var(--text-muted); letter-spacing:0.05em;">{{ slide.footer | default('') }}</span>
+  </div>
+  <div class="page-number">{{ locale.page_number.replace('{current}', loop.index|string).replace('{total}', current_slides|length|string) }}</div>
+</section>

@@ -20,7 +20,12 @@
   {% set current_slides = slides %}
   {% set locale = _locale %}
   {% set lang = _lang %}
-  {% include 'slides/' ~ slide.type ~ '.j2' %}
+  {% if slide.variant %}
+    {% set variant_template = 'slides/' ~ slide.type ~ '-' ~ slide.variant ~ '.j2' %}
+    {% include variant_template ignore missing %}
+  {% else %}
+    {% include 'slides/' ~ slide.type ~ '.j2' %}
+  {% endif %}
 {% endfor %}
 
 </body>

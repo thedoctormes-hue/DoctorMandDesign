@@ -1,0 +1,39 @@
+{% set slide = current_slide %}
+{% set loop = current_loop %}
+<section class="slide" style="padding:14mm 20mm 12mm 20mm;">
+  {% if slide.heading %}
+  <div style="margin-bottom:8px;">
+    <span style="font-size:11px; font-weight:600; color:var(--accent-cyan); text-transform:uppercase; letter-spacing:0.08em;">{{ locale.section_labels[slide.heading] | default(slide.heading | upper) }}</span>
+  </div>
+  {% endif %}
+  <div style="margin-bottom:16px;">
+    <span style="font-size:24px; font-weight:700; color:var(--text-primary);">{{ slide.title }}</span>
+  </div>
+  <div class="grid grid-3 gap-md" style="flex:1;">
+    {% for member in slide.members %}
+    <div style="display:flex; align-items:center; gap:12px; padding:12px; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:8px;">
+      <div style="width:40px; height:40px; border-radius:50%; background:var(--accent-cyan-dim); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <span style="font-size:14px; font-weight:700; color:var(--accent-cyan);">{{ member.name[:1] }}</span>
+      </div>
+      <div>
+        <div style="font-size:13px; font-weight:600; color:var(--text-primary);">{{ member.name }}</div>
+        <div style="font-size:10px; color:var(--text-muted); margin-top:2px; line-height:1.3;">{{ member.role }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% if slide.advisors %}
+  <div style="margin-top:12px;">
+    <div style="font-size:11px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px;">Advisors</div>
+    <div class="flex gap-md" style="justify-content:center;">
+      {% for adv in slide.advisors %}
+      <div style="text-align:center; padding:8px 16px;">
+        <div style="font-size:12px; font-weight:600; color:var(--text-primary);">{{ adv.name }}</div>
+        <div style="font-size:10px; color:var(--text-muted);">{{ adv.role }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  <div class="page-number">{{ locale.page_number.replace('{current}', loop.index|string).replace('{total}', current_slides|length|string) }}</div>
+</section>

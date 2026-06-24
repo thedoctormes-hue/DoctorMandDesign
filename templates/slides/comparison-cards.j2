@@ -1,0 +1,40 @@
+{% set slide = current_slide %}
+{% set loop = current_loop %}
+<section class="slide" style="padding:14mm 20mm 12mm 20mm;">
+  {% if slide.heading %}
+  <div style="margin-bottom:8px;">
+    <span style="font-size:11px; font-weight:600; color:var(--accent-cyan); text-transform:uppercase; letter-spacing:0.08em;">{{ locale.section_labels[slide.heading] | default(slide.heading | upper) }}</span>
+  </div>
+  {% endif %}
+  <div style="margin-bottom:16px;">
+    <span style="font-size:22px; font-weight:700; color:var(--text-primary);">{{ slide.title }}</span>
+  </div>
+  <!-- Two columns: competitor vs us -->
+  <div class="flex gap-md" style="flex:1;">
+    <div style="flex:1;">
+      <div style="font-size:12px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">{{ slide.competitor_name | default('Others') }}</div>
+      {% for row in slide.rows %}
+      <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:6px; padding:10px 14px; margin-bottom:8px;">
+        <div style="font-size:10px; color:var(--text-muted); margin-bottom:3px;">{{ row.criterion }}</div>
+        <div style="font-size:12px; color:var(--text-secondary);">{{ row.competitor }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    <div style="width:2px; background:var(--border-glow); margin:0 8px;"></div>
+    <div style="flex:1;">
+      <div style="font-size:12px; font-weight:600; color:var(--green); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">{{ slide.our_name | default('Us') }}</div>
+      {% for row in slide.rows %}
+      <div style="background:var(--bg-win); border:1px solid var(--border-win); border-radius:6px; padding:10px 14px; margin-bottom:8px;">
+        <div style="font-size:10px; color:var(--text-muted); margin-bottom:3px;">{{ row.criterion }}</div>
+        <div style="font-size:12px; color:var(--green); font-weight:600;">{{ row.ours }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% if slide.source %}
+  <div style="margin-top:8px;">
+    <span style="font-size:10px; color:var(--text-muted);">* {{ slide.source }}</span>
+  </div>
+  {% endif %}
+  <div class="page-number">{{ locale.page_number.replace('{current}', loop.index|string).replace('{total}', current_slides|length|string) }}</div>
+</section>

@@ -1,0 +1,28 @@
+{% set slide = current_slide %}
+{% set loop = current_loop %}
+<section class="slide" style="padding:14mm 24mm 12mm 24mm;">
+  {% if slide.heading %}
+  <div style="margin-bottom:8px;">
+    <span style="font-size:11px; font-weight:600; color:var(--accent-cyan); text-transform:uppercase; letter-spacing:0.08em;">{{ locale.section_labels[slide.heading] | default(slide.heading | upper) }}</span>
+  </div>
+  {% endif %}
+  <div style="margin-bottom:16px;">
+    <span style="font-size:24px; font-weight:700; color:var(--text-primary);">{{ slide.title }}</span>
+  </div>
+  <div style="flex:1;">
+    {% for item in slide['items'] %}
+    <div style="margin-bottom:10px; border:1px solid var(--border-subtle); border-radius:6px; overflow:hidden;">
+      <div style="padding:12px 16px; background:var(--bg-elevated);">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:14px; color:var(--accent-cyan);">Q</span>
+          <span style="font-size:13px; font-weight:600; color:var(--text-primary);">{{ item.question }}</span>
+        </div>
+      </div>
+      <div style="padding:10px 16px 12px 28px; border-top:1px solid var(--border-subtle);">
+        <div style="font-size:11px; color:var(--text-secondary); line-height:1.5;">{{ item.answer }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="page-number">{{ locale.page_number.replace('{current}', loop.index|string).replace('{total}', current_slides|length|string) }}</div>
+</section>
