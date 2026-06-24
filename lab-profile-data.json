@@ -1,0 +1,162 @@
+{
+  "lang": "en",
+  "title": "DoctorM&Ai Laboratory",
+  "subtitle": "Autonomous AI Agent Ecosystem for R&D Automation",
+  "slides": [
+    {
+      "type": "hero",
+      "title": "DoctorM&Ai Laboratory",
+      "subtitle": "8 AI Agents · 23 Projects · ~252K Lines of Code",
+      "footer": "Autonomous R&D Ecosystem · Active since 2024",
+      "cards": [
+        {"title": "8 AI Agents", "body": "Orchestrator, Analyst, Auditor, Researcher, Builder, Operator, Developer, Scout — working 24/7"},
+        {"title": "23 Projects", "body": "6 in production, 17 in MVP/R&D. Python, Go, Node.js, React."}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "THE PROBLEM",
+      "title": "R&D is Broken"
+    },
+    {
+      "type": "problem",
+      "heading": "THE PROBLEM",
+      "title": "Companies waste months on routine operations",
+      "stat": [
+        {"value": "Months", "label": "Supplier search", "color": "red"},
+        {"value": "Weeks", "label": "Decision alignment", "color": "red"},
+        {"value": "Days", "label": "Market monitoring", "color": "yellow"},
+        {"value": "Never", "label": "Knowledge reuse", "color": "red"}
+      ],
+      "note": "Each task is solved separately. Knowledge is not accumulated. Teams repeat the same research."
+    },
+    {
+      "type": "section",
+      "heading": "THE APPROACH",
+      "title": "Autonomous AI Agent Ecosystem"
+    },
+    {
+      "type": "solution",
+      "heading": "THE APPROACH",
+      "title": "8 specialized agents, one unified ecosystem",
+      "features": [
+        {"title": "Specialized", "body": "Each agent is an expert in its domain — from price parsing to architecture"},
+        {"title": "24/7", "body": "Agents work around the clock, no downtime, no vacations"},
+        {"title": "Connected", "body": "Peer-to-peer communication via sessions_send, coordinated by Orchestrator"},
+        {"title": "Persistent", "body": "Shared semantic memory (FAISS + ONNX) — 12,700+ vectors"},
+        {"title": "Auditable", "body": "Every decision traceable through ADR, incidents, and git history"},
+        {"title": "Extensible", "body": "New agents join via ModuleRegistry auto-discovery"}
+      ],
+      "metric": "6 services in production · 44 ADR · 21 patterns · 38 incidents analyzed"
+    },
+    {
+      "type": "section",
+      "heading": "TEAM",
+      "title": "8 AI Agents"
+    },
+    {
+      "type": "team",
+      "heading": "TEAM",
+      "title": "The Colony",
+      "members": [
+        {"name": "Kotolizator", "role": "Orchestrator · Task routing & coordination"},
+        {"name": "Mongoose", "role": "Analyst · Data analysis, ADR, integrations"},
+        {"name": "Owl", "role": "Auditor · Security, compliance, rotation"},
+        {"name": "Raven", "role": "Researcher · Deep research, tech radar, patents"},
+        {"name": "Ant", "role": "Builder · System integration, Docker, CI/CD"},
+        {"name": "Beast", "role": "Operator · Health checks, monitoring"},
+        {"name": "Striker", "role": "Developer · Code, refactoring, architecture"},
+        {"name": "Dominika", "role": "Scout · Resource reconnaissance, data collection"}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "TECH STACK",
+      "title": "Technology"
+    },
+    {
+      "type": "benefits",
+      "heading": "TECH STACK",
+      "title": "Battle-tested stack",
+      "benefits": [
+        {"title": "Backend", "body": "Python 3.10+ (FastAPI, SQLAlchemy), Go 1.25 (chi), Node.js 24 (Express)"},
+        {"title": "Frontend", "body": "React 18/19, Vite 5/7/8, Tailwind CSS, Radix UI"},
+        {"title": "AI/LLM", "body": "OpenRouter (multi-provider), EmbeddingGemma-300m, FAISS, ONNX Runtime"},
+        {"title": "Infrastructure", "body": "Docker Compose, systemd, Nginx, GitHub Actions CI/CD"}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "PRODUCTION",
+      "title": "What's Live"
+    },
+    {
+      "type": "stats",
+      "heading": "PRODUCTION",
+      "title": "6 Services in Production",
+      "stats": [
+        {"value": "snablab", "label": "Price parsing (FastAPI+React)", "color": "cyan"},
+        {"value": "consilium", "label": "AI Council (Go+Telegram)", "color": "green"},
+        {"value": "stenographer", "label": "Audio transcription (aiogram)", "color": "yellow"},
+        {"value": "free-api-hunter", "label": "LLM API monitoring (Go+React)", "color": "cyan"},
+        {"value": "vpn-daemon", "label": "VPN management (Xray VLESS)", "color": "green"},
+        {"value": "myrmex-control", "label": "Colony control panel (Express+React)", "color": "yellow"}
+      ],
+      "note": "Best-effort, no SLA. 23 projects total, ~252K lines of code."
+    },
+    {
+      "type": "section",
+      "heading": "ROADMAP",
+      "title": "What's Next"
+    },
+    {
+      "type": "roadmap",
+      "heading": "ROADMAP",
+      "title": "1-4 Weeks",
+      "phases": [
+        {"label": "Week 1-2", "name": "API Hub MVP", "desc": "Routing + auth (FastAPI)", "color": "cyan"},
+        {"label": "Week 2-3", "name": "Myrmex Chat Bridge", "desc": "Website ↔ agent sessions", "color": "green"},
+        {"label": "Week 3-4", "name": "Tech Debt Cleanup", "desc": "12 repos, uncommitted changes", "color": "yellow"}
+      ],
+      "segments_title": "1-3 MONTHS",
+      "segments": [
+        {"title": "AutoExpert", "body": "6-8 parsers, 1000+ items/article", "color": "cyan"},
+        {"title": "Centralized Logging", "body": "Unified log collection", "color": "green"},
+        {"title": "Metrics", "body": "Latency, throughput, error rate", "color": "yellow"},
+        {"title": "Real-time Memory", "body": "Live reindex on file change", "color": "red"}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "RESEARCH",
+      "title": "Research Directions"
+    },
+    {
+      "type": "benefits",
+      "heading": "RESEARCH",
+      "title": "Exploring",
+      "benefits": [
+        {"title": "Per-agent Skills", "body": "Filter skills by agent role"},
+        {"title": "Sandboxing", "body": "Isolate exec-heavy agents"},
+        {"title": "Consilium as Service", "body": "Productize the AI council"},
+        {"title": "Benchmarks", "body": "Compare with industry analogs"}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "HOW TO JOIN",
+      "title": "Contributing"
+    },
+    {
+      "type": "cta",
+      "heading": "HOW TO JOIN",
+      "title": "Fork → Change → PR",
+      "items": [
+        {"title": "Fork", "body": "Clone any of 23 repositories"},
+        {"title": "Commit", "body": "Use lab-commit.sh for unified git user"},
+        {"title": "Review", "body": "Code review by Striker (Developer agent)"}
+      ],
+      "contact": "DoctorM&Ai Laboratory · All rights reserved"
+    }
+  ]
+}

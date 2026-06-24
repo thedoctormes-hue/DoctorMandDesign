@@ -1,0 +1,156 @@
+{
+  "lang": "en",
+  "title": "SCOPIQ",
+  "subtitle": "AI-assisted polyp detection during colonoscopy in real time",
+  "slides": [
+    {
+      "type": "hero",
+      "title": "SCOPIQ",
+      "subtitle": "AI-assisted polyp detection during colonoscopy in real time",
+      "footer": "Team VitaMind · Hackathon \"Medicine of the Future 2.0\"",
+      "cards": [
+        {"title": "Import substitution", "body": "Works with any endoscope. Local inference. No internet."},
+        {"title": "Technology", "body": "YOLOv8m · mAP50: 0.938 · Latency <100 ms · Kvasir-SEG."}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "TEAM",
+      "title": "VitaMind — three people, three areas of expertise"
+    },
+    {
+      "type": "team",
+      "heading": "TEAM",
+      "title": "Team VitaMind",
+      "members": [
+        {"name": "Filip Panchuk", "role": "Technical co-founder · Architecture, ML pipeline, code"},
+        {"name": "Irina Mazurova", "role": "Clinical methodologist · Clinical expertise, scenario validation"},
+        {"name": "Evgeny Moskovsky", "role": "Head of laboratory · Scientific validity of the model"}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "HOW IT WORKS",
+      "title": "Scopiq Technology"
+    },
+    {
+      "type": "how",
+      "heading": "HOW IT WORKS",
+      "title": "Connect in 30 seconds — works with any endoscope",
+      "steps": [
+        {"title": "Endoscope", "desc": "Any device with HDMI output"},
+        {"title": "HDMI splitter", "desc": "Passive, no integration needed"},
+        {"title": "Inference unit", "desc": "YOLOv8m · Jetson Orin Nano"},
+        {"title": "Doctor's monitor", "desc": "AI overlay with polyp highlighting"}
+      ],
+      "note": "Latency <100 ms · mAP50 = 0.938 · Dataset: Kvasir-SEG"
+    },
+    {
+      "type": "section",
+      "heading": "BENEFITS",
+      "title": "Three key advantages"
+    },
+    {
+      "type": "benefits",
+      "heading": "BENEFITS",
+      "title": "Why Scopiq",
+      "benefits": [
+        {"title": "Universality", "desc": "Connects to any endoscope with video output. No vendor lock-in."},
+        {"title": "Local processing", "desc": "All inference works offline. Patient data never leaves the room."},
+        {"title": "Risk reduction", "desc": "Meta-analysis of 15,000+ colonoscopies: 26% adenomas, 27% serrated, 34% flat adenomas are missed."}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "LIMITATIONS",
+      "title": "Honest limitations"
+    },
+    {
+      "type": "problem",
+      "heading": "LIMITATIONS",
+      "title": "What you need to know",
+      "stat": [
+        {"value": "~5%", "label": "False positives", "color": "yellow"},
+        {"value": "HDMI", "label": "Additional equipment", "color": "yellow"},
+        {"value": "2nd opinion", "label": "Not a doctor replacement", "color": "red"}
+      ],
+      "note": "False positives are adjustable via confidence threshold. Needs initial calibration. Scopiq is a second opinion — final decision is always the endoscopist's."
+    },
+    {
+      "type": "section",
+      "heading": "ROADMAP",
+      "title": "Development path"
+    },
+    {
+      "type": "roadmap",
+      "heading": "ROADMAP",
+      "title": "From colonoscopy to full endoscopy",
+      "phases": [
+        {"label": "Phase 1", "name": "Colonoscopy MVP", "desc": "Real-time polyp detection", "color": "cyan"},
+        {"label": "Phase 2", "name": "Gastroscopy", "desc": "Stomach cancer, H. pylori", "color": "green"},
+        {"label": "Phase 3", "name": "Bronchoscopy", "desc": "Lung cancer", "color": "yellow"},
+        {"label": "Phase 4", "name": "Cystoscopy", "desc": "Bladder cancer", "color": "red"}
+      ],
+      "segments_title": "PARALLEL DIRECTIONS",
+      "segments": [
+        {"title": "Simulator", "desc": "Training residents on real videos with AI annotations", "color": "cyan"},
+        {"title": "Post-analysis", "desc": "Segmentation models for detailed morphology", "color": "green"},
+        {"title": "Medical device", "desc": "Registration with Roszdravnadzor (Class 3)", "color": "yellow"}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "ECONOMICS",
+      "title": "Business model"
+    },
+    {
+      "type": "economics",
+      "heading": "ECONOMICS",
+      "title": "Unit economics and positioning",
+      "prices": [
+        {"value": "$2,400", "label": "Hardware per room", "color": "accent-cyan"},
+        {"value": "$190/mo", "label": "Subscription", "color": "green"},
+        {"value": "$380", "label": "One-time setup", "color": "yellow"}
+      ],
+      "calc": {"title": "ARR at 10% market coverage", "detail": "$680K–1.1M per year"},
+      "note": "Market: 3,000–5,000 endoscopy rooms in Russia"
+    },
+    {
+      "type": "section",
+      "heading": "COMPETITION",
+      "title": "Competitive analysis"
+    },
+    {
+      "type": "competition",
+      "heading": "COMPETITION",
+      "title": "Scopiq vs ArtInCol vs Foreign solutions",
+      "criterion_label": "Criterion",
+      "competitor_name": "ArtInCol / Foreign",
+      "our_name": "Scopiq",
+      "rows": [
+        {"criterion": "Connection", "competitor": "HD-SDI, compatible processor", "ours": "HDMI splitter, any endoscope"},
+        {"criterion": "MIS integration", "competitor": "Legendo, NMIC ecosystem", "ours": "Standalone, no integration"},
+        {"criterion": "Target niche", "competitor": "Enterprise solution for clinics", "ours": "MVP + resident training"},
+        {"criterion": "Availability", "competitor": "Only for compatible devices", "ours": "Any device with HDMI"},
+        {"criterion": "Import dependence", "competitor": "GI Genius, CAD EYE left Russia", "ours": "Fully local"}
+      ],
+      "source": "88% of Russian endoscopy market — imported devices (Olympus, Fujifilm, Pentax, Karl Storz)"
+    },
+    {
+      "type": "section",
+      "heading": "DEMO",
+      "title": "See for yourself"
+    },
+    {
+      "type": "cta",
+      "heading": "DEMO",
+      "title": "Scopiq — a second opinion that saves lives",
+      "items": [
+        {"title": "Demo", "desc": "QR code leads to working URL"},
+        {"title": "Screencast", "desc": "Backup option for jury"},
+        {"title": "Q&A", "desc": "Ready for any questions"}
+      ],
+      "contact": "Team VitaMind · Hackathon \"Medicine of the Future 2.0\""
+    }
+  ]
+}

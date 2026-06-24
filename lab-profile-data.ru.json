@@ -1,0 +1,162 @@
+{
+  "lang": "ru",
+  "title": "Лаборатория DoctorM&Ai",
+  "subtitle": "Автономная экосистема AI-агентов для R&D",
+  "slides": [
+    {
+      "type": "hero",
+      "title": "Лаборатория DoctorM&Ai",
+      "subtitle": "8 AI-агентов · 23 проекта · ~252K строк кода",
+      "footer": "Автономная R&D-экосистема · Активна с 2024",
+      "cards": [
+        {"title": "8 AI-агентов", "body": "Оркестратор, Аналитик, Аудитор, Разведчик, Строитель, Оператор, Разработчик, Разведчица — работают 24/7"},
+        {"title": "23 проекта", "body": "6 в продакшне, 17 в MVP/R&D. Python, Go, Node.js, React."}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "ПРОБЛЕМА",
+      "title": "R&D сломан"
+    },
+    {
+      "type": "problem",
+      "heading": "ПРОБЛЕМА",
+      "title": "Компании тратят месяцы на рутину",
+      "stat": [
+        {"value": "Месяцы", "label": "Поиск поставщиков", "color": "red"},
+        {"value": "Недели", "label": "Согласование решений", "color": "red"},
+        {"value": "Дни", "label": "Мониторинг рынка", "color": "yellow"},
+        {"value": "Никогда", "label": "Повторное использование знаний", "color": "red"}
+      ],
+      "note": "Каждая задача решается отдельно. Знания не накапливаются. Команды повторяют одно и то же исследование."
+    },
+    {
+      "type": "section",
+      "heading": "ПОДХОД",
+      "title": "Автономная экосистема AI-агентов"
+    },
+    {
+      "type": "solution",
+      "heading": "ПОДХОД",
+      "title": "8 специализированных агентов, единая экосистема",
+      "features": [
+        {"title": "Специализация", "body": "Каждый агент — эксперт в своей области — от парсинга цен до архитектуры"},
+        {"title": "24/7", "body": "Агенты работают круглосуточно, без простоев и отпусков"},
+        {"title": "Связанность", "body": "Peer-to-peer коммуникация через sessions_send, координация через Оркестратора"},
+        {"title": "Постоянство", "body": "Общая семантическая память (FAISS + ONNX) — 12 700+ векторов"},
+        {"title": "Аудируемость", "body": "Каждое решение отслеживается через ADR, инциденты и git-историю"},
+        {"title": "Расширяемость", "body": "Новые агенты подключаются через ModuleRegistry auto-discovery"}
+      ],
+      "metric": "6 сервисов в продакшне · 44 ADR · 21 паттерн · 38 проанализированных инцидентов"
+    },
+    {
+      "type": "section",
+      "heading": "КОМАНДА",
+      "title": "8 AI-агентов"
+    },
+    {
+      "type": "team",
+      "heading": "КОМАНДА",
+      "title": "Колония",
+      "members": [
+        {"name": "Котолизатор", "role": "Оркестратор · Маршрутизация и координация задач"},
+        {"name": "Мангуст", "role": "Аналитик · Анализ данных, ADR, интеграции"},
+        {"name": "Сова", "role": "Аудитор · Безопасность, compliance, ротация"},
+        {"name": "Ворон", "role": "Разведчик · Глубокие исследования, tech radar, патенты"},
+        {"name": "Муравей", "role": "Строитель · Системная интеграция, Docker, CI/CD"},
+        {"name": "Бестия", "role": "Оператор · Health checks, мониторинг"},
+        {"name": "Штрейкбрехер", "role": "Разработчик · Код, рефакторинг, архитектура"},
+        {"name": "Доминика", "role": "Разведчица · Разведка ресурсов, сбор данных"}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "СТЕК",
+      "title": "Технологии"
+    },
+    {
+      "type": "benefits",
+      "heading": "СТЕК",
+      "title": "Проверенный в бою стек",
+      "benefits": [
+        {"title": "Backend", "body": "Python 3.10+ (FastAPI, SQLAlchemy), Go 1.25 (chi), Node.js 24 (Express)"},
+        {"title": "Frontend", "body": "React 18/19, Vite 5/7/8, Tailwind CSS, Radix UI"},
+        {"title": "AI/LLM", "body": "OpenRouter (мультипровайдер), EmbeddingGemma-300m, FAISS, ONNX Runtime"},
+        {"title": "Инфраструктура", "body": "Docker Compose, systemd, Nginx, GitHub Actions CI/CD"}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "ПРОДАКШН",
+      "title": "Что работает"
+    },
+    {
+      "type": "stats",
+      "heading": "ПРОДАКШН",
+      "title": "6 сервисов в продакшне",
+      "stats": [
+        {"value": "snablab", "label": "Парсинг цен (FastAPI+React)", "color": "cyan"},
+        {"value": "consilium", "label": "AI-консилиум (Go+Telegram)", "color": "green"},
+        {"value": "stenographer", "label": "Транскрибация аудио (aiogram)", "color": "yellow"},
+        {"value": "free-api-hunter", "label": "Мониторинг LLM API (Go+React)", "color": "cyan"},
+        {"value": "vpn-daemon", "label": "Управление VPN (Xray VLESS)", "color": "green"},
+        {"value": "myrmex-control", "label": "Пульт управления колонией (Express+React)", "color": "yellow"}
+      ],
+      "note": "Best-effort, без SLA. Всего 23 проекта, ~252K строк кода."
+    },
+    {
+      "type": "section",
+      "heading": "ДОРОЖНАЯ КАРТА",
+      "title": "Что дальше"
+    },
+    {
+      "type": "roadmap",
+      "heading": "ДОРОЖНАЯ КАРТА",
+      "title": "1-4 недели",
+      "phases": [
+        {"label": "Неделя 1-2", "name": "API Hub MVP", "desc": "Маршрутизация + авторизация (FastAPI)", "color": "cyan"},
+        {"label": "Неделя 2-3", "name": "Myrmex Chat Bridge", "desc": "Чат на сайте ↔ сессии агентов", "color": "green"},
+        {"label": "Неделя 3-4", "name": "Очистка техдолга", "desc": "12 репозиториев, незакоммиченные изменения", "color": "yellow"}
+      ],
+      "segments_title": "1-3 МЕСЯЦА",
+      "segments": [
+        {"title": "AutoExpert", "body": "6-8 парсеров, 1000+ предложений/артикул", "color": "cyan"},
+        {"title": "Централизованное логирование", "body": "Единый сбор логов", "color": "green"},
+        {"title": "Метрики", "body": "Latency, throughput, error rate", "color": "yellow"},
+        {"title": "Real-time память", "body": "Переиндексация при изменении файлов", "color": "red"}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "ИССЛЕДОВАНИЯ",
+      "title": "Исследовательские направления"
+    },
+    {
+      "type": "benefits",
+      "heading": "ИССЛЕДОВАНИЯ",
+      "title": "Исследуем",
+      "benefits": [
+        {"title": "Skills по ролям", "body": "Фильтрация навыков под роль агента"},
+        {"title": "Песочница", "body": "Изоляция exec-тяжёлых агентов"},
+        {"title": "Консилиум как сервис", "body": "Вынос консилиума в продуктовое предложение"},
+        {"title": "Бенчмарки", "body": "Сравнение с индустрией по скорости и качеству"}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "КАК ПРИСОЕДИНИТЬСЯ",
+      "title": "Контрибуция"
+    },
+    {
+      "type": "cta",
+      "heading": "КАК ПРИСОЕДИНИТЬСЯ",
+      "title": "Fork → Change → PR",
+      "items": [
+        {"title": "Fork", "body": "Клонируйте любой из 23 репозиториев"},
+        {"title": "Commit", "body": "Используйте lab-commit.sh для единого git user"},
+        {"title": "Review", "body": "Код-ревью через Штрейкбрехера (Developer agent)"}
+      ],
+      "contact": "Лаборатория DoctorM&Ai · Все права защищены"
+    }
+  ]
+}
