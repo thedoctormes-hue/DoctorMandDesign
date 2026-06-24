@@ -1,0 +1,26 @@
+<section class="slide">
+  {% set slide = current_slide %}
+  {% set loop = current_loop %}
+  <div class="flex-col" style="flex:1; justify-content:center; align-items:center; text-align:center;">
+    <div style="margin-bottom:8px;">
+      <span style="font-size:56px; font-weight:900; color:var(--text-primary); letter-spacing:-0.03em;">{{ slide.title }}</span>
+    </div>
+    <div style="margin-bottom:6px;">
+      <span style="font-size:20px; color:var(--accent-cyan);">{{ slide.subtitle }}</span>
+    </div>
+    <div style="margin-bottom:20px;">
+      <span style="font-size:12px; color:var(--text-muted);">{{ slide.footer }}</span>
+    </div>
+    {% if slide.cards %}
+    <div class="flex gap-md" style="justify-content:center; width:100%;">
+      {% for card in slide.cards %}
+      <div class="card-glow" style="width:260px; padding:14px;">
+        <div style="font-size:12px; font-weight:700; color:var(--accent-cyan); margin-bottom:4px;">{{ card.title }}</div>
+        <div style="font-size:10px; color:var(--text-secondary); line-height:1.4;">{{ card.body }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="page-number">{{ loop.index }} / {{ current_slides|length }}</div>
+</section>

@@ -1,0 +1,38 @@
+<section class="slide">
+  {% set slide = current_slide %}
+  {% set loop = current_loop %}
+  <div class="mb-sm">
+    <span class="section-label text-cyan">{{ slide.heading }}</span>
+  </div>
+  <div class="mb-lg">
+    <span style="font-size:22px; font-weight:700; color:var(--yellow);">{{ slide.title }}</span>
+  </div>
+  <table class="table">
+    <thead>
+      <th>Покрытие</th>
+      <th>Кабинеты</th>
+      <th>Оборудование</th>
+      <th>Подписка</th>
+      <th>Итого</th>
+    </thead>
+    <tbody>
+      {% for row in slide.rows %}
+      <tr>
+        {% for cell in row %}
+        {% if loop.last %}
+        <td style="color:var(--green); font-weight:700;">{{ cell }}</td>
+        {% else %}
+        <td>{{ cell }}</td>
+        {% endif %}
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% if slide.note %}
+  <div class="card-glow mt-md">
+    <div style="font-size:14px; font-weight:700; color:var(--green);">{{ slide.note }}</div>
+  </div>
+  {% endif %}
+  <div class="page-number">{{ loop.index }} / {{ current_slides|length }}</div>
+</section>

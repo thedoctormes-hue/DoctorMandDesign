@@ -1,0 +1,4 @@
+weasyprint>=69.0
+jinja2>=3.0
+Pillow>=9.0
+pytest>=7.0

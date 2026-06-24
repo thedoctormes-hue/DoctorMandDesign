@@ -1,0 +1,27 @@
+<section class="slide">
+  {% set slide = current_slide %}
+  {% set loop = current_loop %}
+  <div class="mb-sm">
+    <span class="section-label text-cyan">{{ slide.heading }}</span>
+  </div>
+  <div class="flex gap-md mb-lg">
+    {% for price in slide.prices %}
+    <div class="card-glow" style="flex:1; text-align:center; padding:24px;">
+      <div style="font-size:28px; font-weight:800; color:var(--{{ price.color | default('accent-cyan') }});">{{ price.value }}</div>
+      <div class="text-xs" style="color:var(--text-muted); margin-top:4px;">{{ price.label }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% if slide.calc %}
+  <div class="card-glow">
+    <div style="font-size:13px; font-weight:600; color:var(--green);">{{ slide.calc.title }}</div>
+    <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">{{ slide.calc.detail }}</div>
+  </div>
+  {% endif %}
+  {% if slide.note %}
+  <div class="card-glow mt-md">
+    <div style="font-size:14px; font-weight:700; color:var(--green);">{{ slide.note }}</div>
+  </div>
+  {% endif %}
+  <div class="page-number">{{ loop.index }} / {{ current_slides|length }}</div>
+</section>

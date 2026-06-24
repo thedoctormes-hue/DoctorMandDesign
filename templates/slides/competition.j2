@@ -1,0 +1,31 @@
+<section class="slide">
+  {% set slide = current_slide %}
+  {% set loop = current_loop %}
+  <div class="mb-sm">
+    <span class="section-label text-cyan">{{ slide.heading }}</span>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th style="width:20%;">{{ slide.criterion_label | default('Критерий') }}</th>
+        <th style="width:40%;">{{ slide.competitor_name }}</th>
+        <th style="width:40%;">{{ slide.our_name }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in slide.rows %}
+      <tr>
+        <td>{{ row.criterion }}</td>
+        <td>{{ row.competitor }}</td>
+        <td style="color:var(--green); font-weight:600;">{{ row.ours }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% if slide.source %}
+  <div class="mt-md">
+    <span class="text-xs" style="color:var(--text-muted);">* {{ slide.source }}</span>
+  </div>
+  {% endif %}
+  <div class="page-number">{{ loop.index }} / {{ current_slides|length }}</div>
+</section>

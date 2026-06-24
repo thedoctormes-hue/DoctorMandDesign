@@ -1,0 +1,10 @@
+{
+  "title": "PoliScope",
+  "subtitle": "AI‑assistant for polyp detection during colonoscopy in real time",
+  "slides": [
+    {"type":"hero","title":"PoliScope","subtitle":"AI‑assistant for polyp detection during colonoscopy in real time","footer":"Computer‑vision system supporting the endoscopist"},
+    {"type":"problem","heading":"PROBLEM","title":"One in four polyps is missed during colonoscopy","stat":[{"value":"26%","label":"adenoma","color":"red"},{"value":"27%","label":"serrated polyps","color":"yellow"},{"value":"34%","label":"flat adenomas","color":"red"}],"note":"Meta‑analysis of 43 studies, >15 000 colonoscopies (Gastroenterology, 2019)"},
+    {"type":"solution","heading":"SOLUTION","title":"Computer‑vision system supporting the physician during colonoscopy","features":[{"title":"Real‑time","desc":"Analyzes endoscope video stream"},{"title":"Detects","desc":"Suspicious lesions and polyps"},{"title":"Highlights","desc":"Overlays polyps on screen with <100 ms latency"},{"title":"Non‑intrusive","desc":"Connects via HDMI splitter"},{"title":"Offline","desc":"All inference runs locally"},{"title":"Universal","desc":"Works with any endoscope"}],"metric":"Sensitivity 94 % – comparable to an expert endoscopist"},
+    {"type":"how","heading":"HOW IT WORKS","steps":[{"title":"Endoscope","desc":"HDMI‑out"},{"title":"HDMI splitter","desc":"Passive"},{"title":"Inference unit","desc":"YOLOv8m | Jetson"},{"title":"Physician monitor","desc":"With overlay"},{"title":"Data","desc":"Never leaves the room"}],"note":"Latency <100 ms | mAP50 = 0.938 | Dataset = Kvasir‑SEG | Model = YOLOv8m"}
+  ]
+}

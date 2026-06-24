@@ -1,0 +1,19 @@
+<section class="slide">
+  {% set slide = current_slide %}
+  {% set loop = current_loop %}
+  <div class="mb-md">
+    <span class="section-label text-cyan">{{ slide.heading }}</span>
+  </div>
+  <div class="mb-lg">
+    <span style="font-size:22px; font-weight:700; color:var(--text-primary);">{{ slide.title }}</span>
+  </div>
+  <div class="grid grid-2 gap-md">
+    {% for item in slide["items"] %}
+    <div class="card" style="padding:12px 16px;">
+      <span style="font-size:13px; font-weight:700; color:var(--accent-cyan);">{{ item.num }}</span>
+      <span style="font-size:13px; margin-left:8px;">{{ item.label }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="page-number">{{ loop.index }} / {{ current_slides|length }}</div>
+</section>

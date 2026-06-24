@@ -1,105 +1,145 @@
 #!/usr/bin/env python3
-"""DoctorMandDesign — базовые тесты генерации презентации"""
-import os
+"""DoctorMandDesign — тесты генератора презентаций"""
+import subprocess
 import sys
+import json
 import tempfile
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
-sys.path.insert(0, str(SCRIPT_DIR))
 
-def test_generate_pdf():
-    """Тест: генерация PDF из шаблона"""
-    from generate import generate
+def test_generate_with_json():
+    """Генерация PDF из JSON-данных"""
+    json_path = SCRIPT_DIR / "example-data.json"
+    out_pdf = SCRIPT_DIR / "output" / "test_json.pdf"
+    out_pdf.parent.mkdir(exist_ok=True)
+
+    result = subprocess.run(
+        [sys.executable, "generate.py", "--data", str(json_path), "--output", str(out_pdf)],
+        capture_output=True, text=True, cwd=str(SCRIPT_DIR),
+    )
+    assert result.returncode == 0, f"generate.py failed: {result.stderr}"
+    assert out_pdf.exists(), "PDF не создан"
+    assert out_pdf.stat().st_size > 1000, "PDF слишком маленький"
+
+    # PDF header check
+    with open(out_pdf, "rb") as f:
+        header = f.read(5)
+        assert header == b"%PDF-", "Не PDF файл"
+
+    print(f"✅ PDF из JSON создан: {out_pdf.stat().st_size / 1024:.1f} KB")
     
-    with tempfile.TemporaryDirectory() as tmpdir:
-        output = Path(tmpdir) / "test.pdf"
-        generate(
-            input_path=str(SCRIPT_DIR / "slides.html"),
-            output_path=str(output)
-        )
-        
-        assert output.exists(), "PDF не создан"
-        assert output.stat().st_size > 1000, "PDF слишком маленький"
-        
-        # Check PDF header
-        with open(output, 'rb') as f:
-            header = f.read(5)
-            assert header == b'%PDF-', "Не PDF файл"
-        
-        size_kb = output.stat().st_size / 1024
-        print(f"✅ PDF создан: {size_kb:.1f} KB")
-        return True
+
+def test_verify_report():
+    """Запуск verify.py и проверка что все слайды имеют текст"""
+    out_pdf = SCRIPT_DIR / "output" / "test_json.pdf"
+    assert out_pdf.exists(), "Сначала запустите test_generate_with_json"
+
+    result = subprocess.run(
+        [sys.executable, "verify.py", str(out_pdf)],
+        capture_output=True, text=True, cwd=str(SCRIPT_DIR),
+    )
+    assert result.returncode == 0, f"verify.py failed: {result.stderr}"
+
+    report = json.loads(result.stdout)
+    total = len(report["slides"])
+    with_text = sum(1 for s in report["slides"] if s["has_text"])
+    ok_contrast = sum(1 for s in report["slides"] if s["contrast_ok"])
+
+    assert with_text == total, f"Текст найден только на {with_text}/{total} слайдах"
+    assert ok_contrast == total, f"Контраст ок только на {ok_contrast}/{total} слайдах"
+
+    print(f"✅ Verify: {total} слайдов, все с текстом и контрастом")
+    
 
 def test_design_system_css():
-    """Тест: design-system.css содержит ключевые переменные"""
+    """CSS содержит ключевые переменные"""
     css_path = SCRIPT_DIR / "design-system.css"
     assert css_path.exists(), "design-system.css не найден"
-    
+
     css = css_path.read_text()
-    
-    required_vars = [
-        '--bg-primary',
-        '--accent-cyan',
-        '--text-primary',
-        '--card-radius',
-    ]
-    
+    required_vars = ["--bg-primary", "--accent-cyan", "--text-primary", "--card-radius", "--font-family"]
+
     for var in required_vars:
         assert var in css, f"Переменная {var} не найдена"
-    
-    print(f"✅ CSS содержит {len(required_vars)} ключевых переменных")
-    return True
 
-def test_slides_html():
-    """Тест: slides.html содержит 12 слайдов"""
-    html_path = SCRIPT_DIR / "slides.html"
-    assert html_path.exists(), "slides.html не найден"
+    # Check @font-face is present
+    assert "@font-face" in css, "@font-face не найден в CSS"
+
+    print(f"✅ CSS: {len(required_vars)} переменных + @font-face")
     
-    html = html_path.read_text()
+
+def test_template_j2():
+    """template.j2 существует и содержит Jinja2-блоки"""
+    tmpl_path = SCRIPT_DIR / "template.j2"
+    assert tmpl_path.exists(), "template.j2 не найден"
+
+    tmpl = tmpl_path.read_text()
+    assert "{% for slide in slides %}" in tmpl, "Нет цикла по слайдам"
+    assert "{% include" in tmpl, "Нет include-блоков для модульных шаблонов"
+
+    # Check modular templates exist
+    slides_dir = SCRIPT_DIR / "templates" / "slides"
+    assert slides_dir.exists(), "templates/slides/ не найден"
+    slide_templates = list(slides_dir.glob("*.j2"))
+    assert len(slide_templates) >= 10, f"Ожидалось >= 10 шаблонов слайдов, найдено {len(slide_templates)}"
+
+    print(f"✅ template.j2: {len(slide_templates)} модульных шаблонов")
     
-    # Count slide sections
-    slide_count = html.count('<!-- ═══ SLIDE')
-    assert slide_count == 12, f"Ожидалось 12 слайдов, найдено {slide_count}"
-    
-    print(f"✅ HTML содержит {slide_count} слайдов")
-    return True
 
 def test_no_secrets():
-    """Тест: нет секретов в коде"""
-    files_to_check = ['generate.py', 'slides.html', 'design-system.css']
-    
-    secret_patterns = ['apiKey', 'password', 'secret', 'token', 'Bearer']
-    
+    """Нет секретов в коде"""
+    files_to_check = ["generate.py", "template.j2", "design-system.css", "example-data.json"]
+    secret_patterns = ["apiKey", "password", "secret", "Bearer"]
+
     for f in files_to_check:
         fpath = SCRIPT_DIR / f
         if fpath.exists():
             content = fpath.read_text()
             for pattern in secret_patterns:
-                # Allow CSS custom properties that happen to contain 'token'
-                if pattern.lower() in content.lower() and f.endswith('.py'):
-                    # Check if it's a real secret (not just a variable name)
-                    lines = content.split('\n')
+                if pattern.lower() in content.lower() and f.endswith(".py"):
+                    lines = content.split("\n")
                     for line in lines:
-                        if pattern.lower() in line.lower() and '=' in line:
-                            # Check if it looks like a hardcoded value
-                            if any(c in line for c in ['\"', "'"]) and 'os.environ' not in line and 'getenv' not in line:
+                        if pattern.lower() in line.lower() and "=" in line:
+                            if any(c in line for c in ['"', "'"]) and "os.environ" not in line:
                                 print(f"⚠️ Возможный секрет в {f}: {line.strip()}")
-    
+
     print("✅ Секреты не найдены")
-    return True
+    
+
+def test_json_schema():
+    """example-data.json валиден и содержит все необходимые поля"""
+    json_path = SCRIPT_DIR / "example-data.json"
+    assert json_path.exists(), "example-data.json не найден"
+
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    assert "title" in data, "Нет title"
+    assert "subtitle" in data, "Нет subtitle"
+    assert "slides" in data, "Нет slides"
+    assert len(data["slides"]) >= 10, f"Слишком мало слайдов: {len(data['slides'])}"
+
+    # Check each slide has a type
+    for i, slide in enumerate(data["slides"]):
+        assert "type" in slide, f"Слайд {i+1}: нет поля type"
+
+    print(f"✅ JSON: {len(data['slides'])} слайдов, все с полем type")
+    
 
 if __name__ == "__main__":
     tests = [
         test_design_system_css,
-        test_slides_html,
+        test_template_j2,
+        test_json_schema,
         test_no_secrets,
-        test_generate_pdf,
+        test_generate_with_json,
+        test_verify_report,
     ]
-    
+
     passed = 0
     failed = 0
-    
+
     for test in tests:
         try:
             test()
@@ -107,10 +147,10 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"❌ {test.__name__}: {e}")
             failed += 1
-    
+
     print(f"\n{'='*40}")
     print(f"Результат: {passed} passed, {failed} failed")
-    
+
     if failed > 0:
         sys.exit(1)
     else:

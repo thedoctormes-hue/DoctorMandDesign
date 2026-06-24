@@ -1,0 +1,13 @@
+<section class="slide" style="padding: 14mm 20mm 12mm 20mm;">
+  {% set slide = current_slide %}
+  {% set loop = current_loop %}
+  <div class="flex-col" style="flex: 1; justify-content: center;">
+    <div class="mb-sm">
+      <span class="section-label text-cyan">{{ slide.heading }}</span>
+    </div>
+    <div>
+      <span style="font-size: 32px; font-weight: 700;">{{ slide.title }}</span>
+    </div>
+  </div>
+  <div class="page-number">{{ loop.index }} / {{ current_slides|length }}</div>
+</section>

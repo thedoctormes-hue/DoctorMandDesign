@@ -1,0 +1,23 @@
+<section class="slide">
+  {% set slide = current_slide %}
+  {% set loop = current_loop %}
+  <div class="mb-sm">
+    <span class="section-label text-cyan">{{ slide.heading }}</span>
+  </div>
+  <div class="mb-lg">
+    <span style="font-size:22px; font-weight:600; color:var(--yellow);">{{ slide.title }}</span>
+  </div>
+  <div class="flex gap-md" style="justify-content:center; align-items:flex-start;">
+    {% for event in slide.events %}
+    <div style="flex:1; text-align:center;">
+      <div style="font-size:13px; font-weight:700; color:var(--accent-cyan);">{{ event.date }}</div>
+      <div style="width:12px; height:12px; border-radius:50%; background:var(--accent-cyan); margin:8px auto;"></div>
+      <div style="font-size:11px; color:var(--text-primary);">{{ event.title }}</div>
+      {% if slide.desc %}
+      <div class="text-xs" style="color:var(--text-muted); margin-top:2px;">{{ event.desc }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="page-number">{{ loop.index }} / {{ current_slides|length }}</div>
+</section>
