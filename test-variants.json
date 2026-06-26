@@ -1,0 +1,134 @@
+{
+  "lang": "en",
+  "title": "Template Variants Demo",
+  "subtitle": "Testing new slide layouts",
+  "slides": [
+    {
+      "type": "hero",
+      "variant": "split",
+      "title": "Split Hero",
+      "subtitle": "Title on the left, content on the right",
+      "tagline": "New Layout",
+      "footer": "Variant: split",
+      "cards": [
+        {"title": "Feature A", "body": "Something interesting"},
+        {"title": "Feature B", "body": "Another point"}
+      ]
+    },
+    {
+      "type": "hero",
+      "variant": "minimal",
+      "title": "Minimal Hero",
+      "subtitle": "Clean and simple. No cards, no clutter.",
+      "footer": "Variant: minimal"
+    },
+    {
+      "type": "hero",
+      "variant": "bold",
+      "overline": "ANNOUNCING",
+      "title": "Bold Hero",
+      "subtitle": "Big, loud, impossible to ignore. With gradient background.",
+      "cards": [
+        {"title": "Launch", "body": "Today"},
+        {"title": "Impact", "body": "Massive"}
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "PROBLEM",
+      "title": "Problem Statement"
+    },
+    {
+      "type": "problem",
+      "variant": "split",
+      "title": "Split Problem",
+      "note": "Text on the left, stats on the right. A clean split layout.",
+      "stat": [
+        {"value": "80%", "label": "Wasted time", "color": "red"},
+        {"value": "$2M", "label": "Annual loss", "color": "red"}
+      ],
+      "alert": "This is an alert message"
+    },
+    {
+      "type": "solution",
+      "variant": "minimal",
+      "title": "Minimal Solution",
+      "features": [
+        {"title": "Clean", "body": "No visual noise"},
+        {"title": "Focused", "body": "Just the essentials"},
+        {"title": "Scannable", "body": "Easy to digest"}
+      ],
+      "metric": "3x faster than before"
+    },
+    {
+      "type": "stats",
+      "variant": "big",
+      "heading": "IMPACT",
+      "stats": [
+        {"value": "99.7%", "label": "Uptime", "color": "cyan"},
+        {"value": "<50ms", "label": "Latency", "color": "green"},
+        {"value": "10x", "label": "Faster", "color": "yellow"}
+      ],
+      "note": "Numbers that speak for themselves"
+    },
+    {
+      "type": "roadmap",
+      "variant": "timeline",
+      "heading": "ROADMAP",
+      "title": "Timeline View",
+      "phases": [
+        {"label": "Q1", "name": "Research", "color": "cyan"},
+        {"label": "Q2", "name": "Build", "color": "green"},
+        {"label": "Q3", "name": "Launch", "color": "yellow"},
+        {"label": "Q4", "name": "Scale", "color": "red"}
+      ]
+    },
+    {
+      "type": "team",
+      "variant": "grid",
+      "heading": "TEAM",
+      "title": "Team Grid",
+      "members": [
+        {"name": "Alice", "role": "CEO"},
+        {"name": "Bob", "role": "CTO"},
+        {"name": "Carol", "role": "Design"},
+        {"name": "Dave", "role": "Engineering"},
+        {"name": "Eve", "role": "Product"},
+        {"name": "Frank", "role": "Ops"}
+      ]
+    },
+    {
+      "type": "comparison",
+      "variant": "cards",
+      "heading": "COMPARISON",
+      "title": "Card Comparison",
+      "competitor_name": "Them",
+      "our_name": "Us",
+      "rows": [
+        {"criterion": "Speed", "competitor": "Slow", "ours": "Fast"},
+        {"criterion": "Cost", "competitor": "$$$", "ours": "$"},
+        {"criterion": "Quality", "competitor": "Medium", "ours": "High"}
+      ]
+    },
+    {
+      "type": "faq",
+      "variant": "accordion",
+      "heading": "FAQ",
+      "title": "Accordion FAQ",
+      "items": [
+        {"question": "How does it work?", "answer": "Magic."},
+        {"question": "Is it secure?", "answer": "Yes."}
+      ]
+    },
+    {
+      "type": "cta",
+      "variant": "bold",
+      "heading": "CTA",
+      "title": "Ready to Get Started?",
+      "items": [
+        {"title": "Start Free", "title": "Contact Us"}
+      ],
+      "contact": "hello@example.com"
+    }
+  ]
+}
